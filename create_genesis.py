@@ -7,6 +7,9 @@ def modify_genesis(export_json_path, output_json_path):
     with open(export_json_path, 'r') as f:
         export_data = json.load(f)
     
+    # set a new chain id
+    export_data['chain_id'] = "uni-420"
+
     # remove smart contract codes, not sure why but initgenesis fails
     export_data['app_state']['wasm']['codes'] = []
     export_data['app_state']['wasm']['contracts'] = []
